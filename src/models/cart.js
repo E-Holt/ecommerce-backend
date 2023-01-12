@@ -20,7 +20,8 @@ const CartSchema = new mongoose.Schema ({
 CartProductSchema.virtual("product", {
   localField: "product_id",
   foreignField: "_id",
-  ref: "Product"
+  ref: "Product",
+  justOne: true,
 })
 
 const Cart = mongoose.model("Cart", CartSchema)
