@@ -26,6 +26,7 @@ productRouter.get("/:productId", async (request, response) => {
 })
 
 productRouter.post("/", auth, async (request, response) => {
+    console.log(request.userId)
     const product = await createProduct({
         title: request.body.title,
         description: request.body.description,
@@ -35,7 +36,7 @@ productRouter.post("/", auth, async (request, response) => {
     response.json(product)
 })
 
-productRouter.delete("/:productId", auth, async (request, response) => {
+productRouter.delete("/:productId", async (request, response) => {
     const product = await deleteProduct(request.params.productId)
     response.json(product)
 })

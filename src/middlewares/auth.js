@@ -3,7 +3,7 @@ const jwt = require("jsonwebtoken")
 function auth(request, response, next){
   //get the token from the authorization header
   let token = request.get("authorization") //bearer token format: `Bearer token`
-  token = token?.split("")?.[1]//token //optional chaining
+  token = token?.split(" ")?.[1]//token //optional chaining
   //check if token exists
   if (!token) {
     return response.status(401).json({ data: "Unauthenticated" })
