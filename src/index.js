@@ -3,6 +3,7 @@ const mongoose = require("mongoose")
 
 const productRouter = require("./controllers/products/productRoutes")
 const cartRouter = require("./controllers/carts/cartRoutes")
+const userRouter = require("/Users/admin/Desktop/Workspaces/Term-3/ecommerce-backend/src/controllers/users/userRoutes.js")
 
 const app = express()
 
@@ -18,6 +19,7 @@ app.get("/", (request, response) => {
 
 app.use("/products", productRouter)
 app.use("/carts", cartRouter)
+app.use("/user", userRouter) 
 
 app.listen(PORT, () => {
     console.log("Server Started")

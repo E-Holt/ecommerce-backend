@@ -1,4 +1,5 @@
 const express = require("express")
+const auth = require("/Users/admin/Desktop/Workspaces/Term-3/ecommerce-backend/src/middlewares/auth.js")
 
 const {
     getProducts,
@@ -24,7 +25,7 @@ productRouter.get("/:productId", async (request, response) => {
     response.json(product)
 })
 
-productRouter.post("/", async (request, response) => {
+productRouter.post("/", auth, async (request, response) => {
     const product = await createProduct({
         title: request.body.title,
         description: request.body.description,
@@ -34,7 +35,7 @@ productRouter.post("/", async (request, response) => {
     response.json(product)
 })
 
-productRouter.delete("/:productId", async (request, response) => {
+productRouter.delete("/:productId", auth, async (request, response) => {
     const product = await deleteProduct(request.params.productId)
     response.json(product)
 })
