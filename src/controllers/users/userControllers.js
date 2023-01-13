@@ -55,8 +55,8 @@ async function loginAdmin(user) {
     }
     //create the token
     const payload = {
-      is: existingUser._id,
-      is_admin: true
+      id: existingUser._id,
+      is_admin: true,
     }
     const token = jwt.sign(payload, "secret")
     //return the token

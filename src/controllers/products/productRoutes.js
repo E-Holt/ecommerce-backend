@@ -1,5 +1,6 @@
 const express = require("express")
-const auth = require("/Users/admin/Desktop/Workspaces/Term-3/ecommerce-backend/src/middlewares/auth.js")
+const auth = require("../../middlewares/auth")
+const admin = require("../../middlewares/admin")
 
 const {
     getProducts,
@@ -36,7 +37,7 @@ productRouter.post("/", auth, async (request, response) => {
     response.json(product)
 })
 
-productRouter.delete("/:productId", async (request, response) => {
+productRouter.delete("/:productId", auth, admin, async (request, response) => {
     const product = await deleteProduct(request.params.productId)
     response.json(product)
 })
