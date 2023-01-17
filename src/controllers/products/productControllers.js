@@ -1,5 +1,26 @@
 const Product = require("/Users/admin/Desktop/Workspaces/Term-3/ecommerce-backend/src/models/products.js")
 
+const products = [
+  {
+    title: "Bag",
+    description: "Bag for all occasions",
+    price: 42,
+    stock: 10,
+  },
+  {
+    title: "Ring",
+    description: "Wedding Ring",
+    price: 4200,
+    stock: 5,
+  },
+  {
+    title: "Wallet",
+    description: "Wallet for all occasions",
+    price: 420,
+    stock: 15,
+  },
+]
+
 async function getProducts() {
   //get the products from the database
   const products = await Product.find()
@@ -7,11 +28,12 @@ async function getProducts() {
 }
 
 async function getProductById(productId) {
+  //get the product from the database with id 'productId'
   try {
-    //get the product from the database with id 'productId'
     const product = await Product.findById(productId)
     return product
-  } catch (err){
+  } catch(err) {
+      //we can also return customized error message
     console.log(err)
   }
 }
@@ -33,4 +55,5 @@ module.exports = {
   getProducts,
   getProductById,
   createProduct,
+  deleteProduct,
 }

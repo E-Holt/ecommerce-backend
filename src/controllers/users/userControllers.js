@@ -35,7 +35,7 @@ async function loginUser(user) {
   }
   //create the token
   const payload = {
-    is: existingUser._id
+    id: existingUser._id
   }
   const token = jwt.sign(payload, "secret")
   //return the token
