@@ -29,7 +29,7 @@ cartRouter.get("/user/:userId", async (request, response) => {
   }
   if (!cart) {
     response.status(404).json({
-      data: "cart doesn't exist",
+      data: "Cart doesn't exist",
     })
   }
   response.json(cart)
